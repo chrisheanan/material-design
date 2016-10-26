@@ -1,0 +1,90 @@
+
+/**
+ * Breakpoints
+ */
+
+@mixin width-bp($min, $max: null) {
+	@if $min == sm {
+		$min: $breakpoint-sm;
+	}
+	@else if $min == md {
+		$min: $breakpoint-md;
+	}
+	@else if $min == lg {
+		$min: $breakpoint-lg;
+	}
+
+	@if ($max == null) {
+		@media all and (min-width: #{$min}px) { @content; }
+	}
+	@else {
+		@if $max == sm {
+			$max: $breakpoint-sm;
+		}
+		@else if $max == md {
+			$max: $breakpoint-md;
+		}
+		@else if $max == lg {
+			$max: $breakpoint-lg;
+		}
+
+		@media all and (min-width: #{$min}px) and (max-width: #{$max}px) { @content; }
+	}
+}
+
+@mixin height-bp($min, $max: null) {
+	@if $min == sm {
+		$min: $breakpoint-sm;
+	}
+	@else if $min == md {
+		$min: $breakpoint-md;
+	}
+	@else if $min == lg {
+		$min: $breakpoint-lg;
+	}
+
+	@if ($max == null) {
+		@media all and (min-width: #{$min}px) { @content; }
+	}
+	@else {
+		@if $min == sm {
+			$min: $breakpoint-sm;
+		}
+		@else if $min == md {
+			$min: $breakpoint-md;
+		}
+		@else if $min == lg {
+			$min: $breakpoint-lg;
+		}
+	
+		@media all and (min-width: #{$min}px) and (max-width: #{$max}px) { @content; }
+	}
+}
+
+/**
+ * Orientation
+ */
+
+@mixin landscape-only() {
+	@media all and (orientation: landscape) { @content; }
+}
+
+@mixin portrait-only() {
+	@media all and (orientation: portrait) { @content; }
+}
+
+/**
+ * Limit media type
+ */
+
+@mixin print-only() {
+	@media print { @content; }
+}
+
+@mixin screen-only() {
+	@media screen { @content; }
+}
+
+@mixin speech-only() {
+	@media speech { @content; }
+}

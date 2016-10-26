@@ -1,0 +1,8 @@
+@function shadow($z) {
+	$black: rgba(get-colour("black"), .12);
+	@return 0 (#{$z}/2)px (#{$z}*1.25)px 0 $black, 0 (#{$z}/2)px (#{$z}*2.5)px 0 $black;
+}
+
+body > header {
+	box-shadow: shadow(4);
+} 

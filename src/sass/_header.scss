@@ -1,0 +1,25 @@
+body > header {
+	height: 48px;
+	
+	@include portrait-only {
+		&:not(.dense) {
+			height: 56px;
+		}
+	}
+
+	&.dense {
+		height: 48px;
+	}
+
+	@include width-bp(sm) {
+		height: 64px;
+
+		&.prominent {
+			height: 128px;
+
+			&.dense {
+				height: 96px;
+			}
+		}		
+	}
+}

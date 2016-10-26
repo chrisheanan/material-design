@@ -1,0 +1,5 @@
+@each $colour, $hex in $palette {
+    .bg-#{$colour} {
+        background-color: $hex !important;
+    }
+}
